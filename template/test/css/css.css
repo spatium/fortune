@@ -1,0 +1,34 @@
+body
+{
+width:				100%;
+height:				100%;
+margin:				0px;
+padding:			0px;
+font-size:			12px;
+background-color:	#E6E6E6;
+font-family:		"Arial", "Helvetica", "Verdana";
+}
+
+#mainwrapper
+{
+max-width:			1015px;
+margin:				0 auto;
+border-left:		1px solid #cecece;
+border-right:		1px solid #cecece;
+background-color:	#ffffff;
+}
+
+#logos
+{
+}
+
+.itemelement_l
+{
+float:				left;
+position:			relative;
+}
+
+.leftitem
+{
+width:				250px;
+}
