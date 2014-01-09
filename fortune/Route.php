@@ -1,9 +1,21 @@
 <?php
 
-class Route extends RouteCore
+class Route
 {
-	public function __construct()
+	public static $instance = null;
+
+	public static function getRoute()
 	{
-		parent::__construct();
+		if ( !self::$instance )
+		{
+			if ( Config::isMultiLanguage() ) 
+				self::$instance = new RouteLangCore;
+			else 
+				self::$instance = new RouteCore;
+			
+		}
+
+		return self::$instance;
 	}
+
 }

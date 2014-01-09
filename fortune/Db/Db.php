@@ -35,6 +35,7 @@ class Db
 
 		return false;
 	}
+
 }
 
 ?>

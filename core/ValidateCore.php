@@ -2,7 +2,7 @@
 
 class ValidateCore
 {
-	public function isController($name)
+	public function isEssence($name)
 	{
 		return (bool)(is_string($name) && preg_match('/^[0-9a-zA-Z-_]*$/u', $name));
 	}

@@ -1,6 +1,6 @@
 <?php
 
-class MySQL extends DbCore
+class MySQL extends AbstractDbCore
 {
 	public function __construct() {}
 
