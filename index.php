@@ -9,4 +9,4 @@ ini_set('display_errors', true);
 
 require( dirname(__FILE__) . '/config/config.inc.php' );
 
-Route::getInstance()->route();
+Route::getRoute()->route();
