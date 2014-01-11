@@ -5,6 +5,11 @@ abstract class AbstractDbCore
 	// соединение с базой
 	protected $connection;
 
+	protected function __construct()
+	{
+		$this->connect();
+	}
+
 	abstract function connect();
 
 	protected function _query($sql)
@@ -12,9 +17,9 @@ abstract class AbstractDbCore
 		return $this->_assoc( $this->_q($sql) );
 	}
 
-	public function select($db_Name)
+	public function select($db_name)
 	{
-		return $this->_query('SELECT * FROM' . $db_Name);
+		return $this->_query("SELECT * FROM `f_$db_name`");
 	}
 
 }

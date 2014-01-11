@@ -2,12 +2,7 @@
 
 class Db
 {
-	public static $instance;
-
-	public function __construct() 
-	{
-		Db::$instance->connect();
-	}
+	public static $instance = NULL;
 
 	public static function getInstance()
 	{
@@ -17,8 +12,6 @@ class Db
 
 			if ( $class )
 				self::$instance = new $class;
-
-			return self::$instance;
 		}
 
 		return self::$instance;

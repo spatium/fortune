@@ -2,11 +2,14 @@
 
 class MySQL extends AbstractDbCore
 {
-	public function __construct() {}
+	public function __construct()
+	{
+		parent::__construct();
+	}
 
 	public function connect()
 	{
-		if ( !$this->connect = mysql_connect( _DB_HOST_ , _DB_USER_ , _DB_PASS_ ) )
+		if ( !$this->connection = mysql_connect( _DB_HOST_ , _DB_USER_ , _DB_PASS_ ) )
 			echo 'плохо все';
 	}
 
@@ -17,7 +20,7 @@ class MySQL extends AbstractDbCore
 
 	protected function _q($sql)
 	{
-		return mysql_query( $sql, $this->connect );
+		return mysql_query( $sql, $this->connection );
 	}
 }
 
