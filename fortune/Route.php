@@ -8,11 +8,10 @@ class Route
 	{
 		if ( !self::$instance )
 		{
-			if ( Config::isMultiLanguage() ) 
+			if ( Config::isMultiLanguage() )
 				self::$instance = new RouteLangCore;
-			else 
+			else
 				self::$instance = new RouteCore;
-			
 		}
 
 		return self::$instance;

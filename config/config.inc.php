@@ -15,6 +15,7 @@ require( _DIR_ROOT_ . '/core/Variable.php' );
 require( _DIR_ROOT_ . '/core/class/Url.php' );
 require( _DIR_ROOT_ . '/core/Route/AbstractRouteCore.php' );
 require( _DIR_ROOT_ . '/core/Route/RouteCore.php' );
+require( _DIR_ROOT_ . '/core/Route/RouteLangCore.php' );
 require( _DIR_ROOT_ . '/core/PathCore.php' );
 require( _DIR_ROOT_ . '/fortune/Path.php' );
 require( _DIR_ROOT_ . '/fortune/Db/Db.php' );

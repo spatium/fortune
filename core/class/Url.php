@@ -34,6 +34,12 @@ class Url
 			}
 		}
 	}
+
+	public function getPage()
+	{
+		$_page = explode( '.html' , $this->elements[0] );
+		return $_page[0];
+	}
 }
 
 ?>
