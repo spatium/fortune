@@ -22,6 +22,12 @@ abstract class AbstractDbCore
 		return $this->_query("SELECT * FROM `f_$db_name`");
 	}
 
+	public function findObject($page)
+	{
+		$sql = 'SELECT `id_object` FROM ' . _DB_NAME_PAGEROUTE_ . "WHERE `page` = $page";
+		return $this->_query($sql);
+	}
+
 }
 
 ?>

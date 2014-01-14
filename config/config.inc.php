@@ -13,9 +13,9 @@ require( dirname(__FILE__) . '/defines.inc.php' );
 
 require( _DIR_ROOT_ . '/core/Variable.php' );
 require( _DIR_ROOT_ . '/core/class/Url.php' );
-require( _DIR_ROOT_ . '/core/Route/AbstractRouteCore.php' );
-require( _DIR_ROOT_ . '/core/Route/RouteCore.php' );
-require( _DIR_ROOT_ . '/core/Route/RouteLangCore.php' );
+require( _DIR_ROOT_ . '/core/route/AbstractRouteCore.php' );
+require( _DIR_ROOT_ . '/core/route/RouteCore.php' );
+require( _DIR_ROOT_ . '/core/route/RouteLangCore.php' );
 require( _DIR_ROOT_ . '/core/PathCore.php' );
 require( _DIR_ROOT_ . '/fortune/Path.php' );
 require( _DIR_ROOT_ . '/fortune/Db/Db.php' );
