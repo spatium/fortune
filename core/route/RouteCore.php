@@ -12,7 +12,8 @@ class RouteCore extends AbstractRouteCore
 		{
 			if ( preg_match( '/([a-zA-Z\-\_\%]+(.html))/', $url->getUrl() ) ) {
 				$_page = $url->getPage();
-				$id = Db::getInstance()->identifyObject($_page);
+				$id = Db::getInstance()->objectID($_page, 'page');
+				print_r($id);
 			}
 			else if ( preg_match( '/([0-9]+-[a-zA-Z]+)(.html)/', $url->getUrl() )  ) {
 			}
