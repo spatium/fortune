@@ -5,6 +5,10 @@ abstract class AbstractDbCore
 	// соединение с базой
 	protected $connection;
 
+	protected $sql;
+
+	protected $result;
+
 	protected function __construct()
 	{
 		$this->connect();
@@ -12,21 +16,23 @@ abstract class AbstractDbCore
 
 	abstract function connect();
 
-	protected function _query($sql)
+	public function nextRow()
 	{
-		return $this->_assoc( $this->_q($sql) );
+		$this->result =  $this->_assoc ( $this->result );
+		return $this->result;
+	}
+
+	public function query($sql)
+	{
+		$this->_query( $sql );
 	}
 
 	public function select($db_name)
 	{
-		return $this->_query("SELECT * FROM `f_$db_name`");
+		return $this->_query('SELECT * FROM `'.$this->tPref($db_name).'`');
 	}
 
-	public function findObject($page)
-	{
-		$sql = 'SELECT `id_object` FROM ' . _DB_NAME_PAGEROUTE_ . "WHERE `page` = $page";
-		return $this->_query($sql);
-	}
+	protected function tPref($table) { return  _DB_PREF_.$table; }
 
 }
 

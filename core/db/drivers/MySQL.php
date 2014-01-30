@@ -1,16 +1,10 @@
 <?php
 
-class MySQL extends AbstractDbCore
+class MySQL extends AbstractDbCore implements InterfaceDbCore
 {
 	public function __construct()
 	{
 		parent::__construct();
-	}
-
-	public function objectID($element, $entity)
-	{
-		$sql = "SELECT * FROM `f_page_route` WHERE `page` = $element";
-		return $this->_query($sql);
 	}
 
 	public function connect()
@@ -21,14 +15,15 @@ class MySQL extends AbstractDbCore
 		mysql_query("SET CHARACTER SET 'utf8'");
 	}
 
-	protected function _assoc($result)
+	public function _assoc($result)
 	{
 		return mysql_fetch_assoc($result);
 	}
 
-	protected function _q($sql)
+	public function _query($sql)
 	{
-		return mysql_query( $sql, $this->connection );
+		$this->result = mysql_query( $sql, $this->connection );
+		return $this->result;
 	}
 }
 

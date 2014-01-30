@@ -6,12 +6,13 @@ class Route
 
 	public static function getRoute()
 	{
-		if ( !self::$instance )
+		if ( self::$instance === null )
 		{
-			if ( Config::isMultiLanguage() )
+			if ( CConfig::isMultiLanguage() ) {
 				self::$instance = new RouteLangCore;
-			else
+			} else {
 				self::$instance = new RouteCore;
+			}
 		}
 
 		return self::$instance;

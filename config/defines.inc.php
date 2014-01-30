@@ -9,6 +9,7 @@ define( '_DB_DRIVER_', 'MySQL' );
 
 define( '_DB_NAME_CONFIG_', 'config') ;
 define( '_DB_NAME_MENUS_' , 'menus') ;
+define( '_DB_NAME_ENTITIES_' , 'entities' );
 define( '_DB_NAME_MENUS_NAME_', 'menus_name' );
 define( '_DB_NAME_SUBSECTION_', 'menus_subsection' );
 define( '_DB_NAME_SUBSECTION_NAME_', 'menus_subsection_name' );
