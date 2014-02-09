@@ -20,6 +20,22 @@ class MySQL extends AbstractDbCore implements InterfaceDbCore
 		return mysql_fetch_assoc($result);
 	}
 
+	public function _select($db_name)
+	{
+		$sql = 'SELECT * FROM `'.$this->tPref($db_name).'`';
+		return $sql;
+	}
+
+	public function _array($result)
+	{
+		return mysql_fetch_array($result);
+	}
+
+	public function _row($result)
+	{
+		return mysql_fetch_row($result);
+	}
+
 	public function _query($sql)
 	{
 		$this->result = mysql_query( $sql, $this->connection );

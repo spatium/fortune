@@ -7,8 +7,7 @@ class CConfig
 
 	public function isMultiLanguage()
 	{
-		$sql = 'SELECT * FROM `' . _DB_PREF_ ._DB_NAME_CONFIG_. '`';
-		$_multi = Db::query($sql)->nextRow();
+		$_multi = Db::select(_DB_NAME_CONFIG_)->getRow();
 		if ( $_multi['multilang'] == 0 ) return false;
 
 		return true;

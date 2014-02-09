@@ -20,9 +20,8 @@ class CEntity
 
 	private function getEntities()
 	{
-		while ( $entity = $dbR = Db::select(_DB_NAME_ENTITIES_)->nextRow() ) {
-			print_r($entity);
-		}
+		while ( $entity = Db::select(_DB_NAME_ENTITIES_)->nextRow() )
+            print_r($entity);
 	}
 
 	private static function getInstance()
