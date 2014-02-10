@@ -4,7 +4,7 @@ class CEntity
 {
 	private static $instance = NULL;
 
-	private $entity;
+	private static $entity = array();
 
 	private function  __construct()
 	{
@@ -15,13 +15,13 @@ class CEntity
 	public static function isPage($page)
 	{
 		$entity = self::getInstance();
-		
+		print_r(self::$entity);
 	}
 
 	private function getEntities()
 	{
 		while ( $entity = Db::select(_DB_NAME_ENTITIES_)->nextRow() )
-            print_r($entity);
+			self::$entity[$entity['entity']] = $entity['id'];
 	}
 
 	private static function getInstance()
