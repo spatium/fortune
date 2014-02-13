@@ -25,10 +25,10 @@ class Db
 		return $Db;
 	}
 
-	public function select($table)
+	public function select($table, $selected = false, $filter = false)
 	{
 		$Db = Db::getInstance();
-		$Db->select($table);
+		$Db->select($table, $selected, $filter);
 		return $Db;
 	}
 

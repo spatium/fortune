@@ -20,9 +20,39 @@ class MySQL extends AbstractDbCore implements InterfaceDbCore
 		return mysql_fetch_assoc($result);
 	}
 
-	public function _select($db_name)
+	public function _select($db_name, $selected = '', $filter = '')
 	{
-		$sql = 'SELECT * FROM `'.$this->tPref($db_name).'`';
+		$sql = 'SELECT ';
+		
+		if ( is_array( $selected ) ) 
+		{
+			$_select = array();
+			foreach ( $selected as $table => $item ) { print_r($item);
+				$_select[] = '`'.$this->tPref($table).$item.'`';
+			}
+			$selected = implode(', ', $_select);
+			unset($_select);
+		} else {
+			$selected = '* ';
+		}
+
+		if ( is_array( $filter ) ) 
+		{
+			$filter = ' WHERE ';
+			foreach ( $filter as $item => $value ) {
+				$filter .= '`'.$this->tPref($item)."` = `$value`";
+			}
+		} else $filter = '';
+
+		if ( is_array( $db_name ) )
+		{
+			$from = ' FROM ';
+			foreach ( $db_name as $table ) {
+				$from .= $this->tPref($table);
+			}
+		} else $from = '';
+
+		$sql .= $selected . $from . $filter;
 		return $sql;
 	}
 
