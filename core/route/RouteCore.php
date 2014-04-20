@@ -2,6 +2,11 @@
 
 class RouteCore extends AbstractRouteCore
 {
+	public function __construct()
+	{
+		parent::__construct();
+	}
+
 	public function route()
 	{
 		$url = new CUrl;
