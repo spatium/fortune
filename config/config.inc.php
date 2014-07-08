@@ -12,7 +12,7 @@ require( dirname(__FILE__) . '/settings.inc.php' );
 require( dirname(__FILE__) . '/defines.inc.php' );
 
 
-require( _DIR_ROOT_ . '/core/Variable.php' );
+require( _DIR_ROOT_ . '/core/V.php' );
 require( _DIR_ROOT_ . '/core/class/CUrl.php' );
 require( _DIR_ROOT_ . '/core/class/CEntity.php' );
 require( _DIR_ROOT_ . '/core/route/AbstractRouteCore.php' );
@@ -27,7 +27,7 @@ require( _DIR_ROOT_ . '/core/db/AbstractDbCore.php' );
 require( _DIR_ROOT_ . '/core/db/InterfaceDbCore.php' );
 
 require( _DIR_ROOT_ . '/core/Autoload.php' );
-require( _DIR_ROOT_ . '/core/class/CConfig.php' );
+require( _DIR_ROOT_ . '/core/class/cconfig.php' );
 
 spl_autoload_register(array(Autoload::getInstance(), 'load'));
 

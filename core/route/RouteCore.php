@@ -11,6 +11,10 @@ class RouteCore extends AbstractRouteCore
 	{
 		$url = new CUrl;
 
+		if ( $url->getCountUrl() == 0 )  {
+			$controller = 'Index';
+		}
+	
 		if ( preg_match( '/([a-zA-Z\-\_\%]+(.html))/', $url->getFirst() ) )
 		{
 			$_page  = $url->getPage();
@@ -29,6 +33,8 @@ class RouteCore extends AbstractRouteCore
 				
 			}
 		}
+
+		
 	}
 }
 

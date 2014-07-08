@@ -50,7 +50,11 @@ class MySQL extends AbstractDbCore implements InterfaceDbCore
 			foreach ( $db_name as $table ) {
 				$from .= $this->tPref($table);
 			}
-		} else $from = '';
+		} else 
+		{
+			if ( $db_name != '' )
+				$from = ' FROM ' . $this->tPref($db_name);
+		}
 
 		$sql .= $selected . $from . $filter;
 		return $sql;

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class Autoload
 {
@@ -30,9 +30,11 @@ class Autoload
 			$is_path = Path::controller($classname);
 		else if ( strpos ( strtolower($classname), 'core') )
 			$is_path = Path::core($classname);
+		else if ( preg_match('/(C[A-Z])([a-z]+)/', $classname) )
+			$is_path = Path::cclass($classname);
 		else
 			$is_path = Path::other($classname);
-
+		 
 		if ( $is_path != false )
 			require_once ($is_path);
 	}

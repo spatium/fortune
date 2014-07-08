@@ -13,7 +13,7 @@ class PathCore
 
 	public function controller($controller)
 	{
-		$_path = strtolower( _DIR_ROOT_ . _PATH_CONTROLLER_FRONT_ . $controller . '.php' );
+		$_path = _DIR_ROOT_ . _PATH_CONTROLLER_FRONT_ . $controller . '.php';
 		if ( file_exists ( $_path ) ) return $_path;
 
 		return false;
@@ -21,10 +21,18 @@ class PathCore
 
 	public function view($controller)
 	{
-		$_path = strtolower(_DIR_ROOT_ . _PATH_APPLICATION_VIEW_ . $controller . '.php');
+		$_path = _DIR_ROOT_ . _PATH_APPLICATION_VIEW_ . $controller . '.php';
 		if ( file_exists( $_path ) ) return $_path;
 
 		return false;
+	}
+
+	public function cclass($class)
+	{
+		$_path = _DIR_ROOT_ . _PATH_CLASS_ . $class . '.php';
+		if ( file_exists( $_path ) ) return $_path;
+
+		return false; 
 	}
 
 	public function other($class)

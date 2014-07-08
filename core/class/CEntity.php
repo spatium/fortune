@@ -11,47 +11,44 @@ class CEntity
 		$this->initEntities();
 	}
 
-
-	public static function isPage($page)
+	public function isEntity($name)
 	{
-		$entity    = self::getInstance();
-		$id_entity = $entity::getEntitiesID('page');
+		$object = self::getInstance()->getEntitiesID($name);
 		
-		if ( $id_entity ) 
-		{
-			$_result = Db::select( array(_DB_NAME_PAGE_), 
-						array(_DB_NAME_PAGE_ => 'id_objects'), 
-						array('value' => $page) )->getRow(); 	
-			print_r($_result);
-		}
-
-		print_r(self::$entity);
+		if ( $object == false )
+			header('Location: 404.html');
+		
+		return $object;
 	}
 
-	public static function isController($page)
+	public function getObjectID($name)
 	{
-		$entity	   = self::getInstance();
-		$id_entity = $entity::getEntittiesID('controller');
-		
-		if ( $id_entity )
-		{
-			$_result = Db::select( array(_DB_NAME_CONTROLLER_),
-						array(_DB_NAME_CONTROLLER_ => 'id_objects'),
-						array('value' => $page) );
+		$_id = self::getInstance()->getObjectID($name);
 
-		}
+		if ( $_id == false )
+			header('Location: 404.html');
+
+		return $_id;
 	}
 
 	private function initEntities()
 	{
-		while ( $entity = Db::select(_DB_NAME_ENTITIES_)->nextRow() )
-			self::$entity[$entity['entity']] = $entity['id'];
+		$query = 'SELECT f_objects_routing.name as route, f_objects.id_entity as id, f_objects.name as object FROM f_objects_routing LEFT JOIN f_objects ON f_objects_routing.id_objects = f_objects.id';
+
+		while ( $entity = Db::query($query)->nextRow() )
+		{
+			self::$entity[$entity['route']] = array( 
+				'id'		=> $entity['id'],
+				'object'	=> $entity['object'],
+			);
+		}
 	}
 
 	/* Возвращает id-шник сущности */
 	private static function getEntitiesID($entity)
 	{
-		return (self::$entity[$entity]) ? self::$entity[$entity] : false;
+		$entity =  urldecode($entity);
+		return (is_array(self::$entity[$entity])) ? self::$entity[$entity]['id'] : false;
 	}
 
 	private static function getInstance()
