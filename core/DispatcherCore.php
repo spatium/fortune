@@ -8,10 +8,9 @@ class DispatcherCore
 	protected function __construct()
 	{
 		$this->url = new CUrl;
-
 		$this->init();
-	
-		$object = CObject::getObject();print_r($object);		
+
+		$object = CObject::getObject();		
 	}
 
 	protected function init()

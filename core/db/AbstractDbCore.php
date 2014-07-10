@@ -30,7 +30,9 @@ abstract class AbstractDbCore
 
 	public function query($query)
 	{
-		$this->_query( $query );
+        if ( !$this->checkQuery($query) ) {
+		    $this->_query( $query );
+        }
 	}
 
 	public function select($db_name, $selected, $filter)

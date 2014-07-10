@@ -1,10 +1,15 @@
 <?php
 
+/**
+ * @author Koval V.
+ * @version 0.0.1
+ */
+
 class CObject
 {
 	private static $instance = NULL;
 
-	private $sql = 'SELECT f_url_rewrite.first as route, f_url_rewrite.id as id, f_object.id_entity as entity FROM  f_url_rewrite LEFT JOIN f_object ON f_url_rewrite ON f_url_rewrite.id_object = f_object.id';
+	private $sql = 'SELECT f_url_rewrite.url as route, f_url_rewrite.id as object, f_objects.id_entity as entity, f_url_rewrite.url_rewrite as url_rewrite FROM f_url_rewrite LEFT JOIN f_objects ON f_url_rewrite.id_object = f_objects.id';
 
 	private $params = array();
 
@@ -25,15 +30,15 @@ class CObject
 			self::$instance = new self;
 		}
 
-		return self;
+		return self::$instance;
 	}
-
+    
 	public function getParams($url)
 	{
-		if ( !$_params = $this->params[$url] )
-			header('Location: NotFound');
+		if ( !isset( $this->params[$url] ) )
+			return false;
 
-		return $_params;
+		return $this->params[$url];
 	}
 
 }

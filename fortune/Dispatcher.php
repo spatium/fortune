@@ -11,7 +11,7 @@ class Dispatcher extends DispatcherCore
 
 	public function dispatch()
 	{
-//		Route::getInstance()->route($url->getFirst(), 
+		Route::getRoute($this->object->getParams('квартиры'))->route();
 	}
 
 	public static function getInstance()

@@ -5,7 +5,7 @@ class PathCore
 
 	public function core($class)
 	{
-		$_path = strtolower( _DIR_ROOT_ . _PATH_CORE_ . $class . '.php');
+		$_path =  _DIR_ROOT_ . _PATH_CORE_ . $class . '.php';
 		if ( file_exists( $_path ) ) return $_path;
 
 		return false;

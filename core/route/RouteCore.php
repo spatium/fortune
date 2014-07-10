@@ -2,15 +2,13 @@
 
 class RouteCore extends AbstractRouteCore
 {
-	public function __construct()
+	public function __construct($params)
 	{
-		parent::__construct();
+		parent::__construct($params);
 	}
 
 	public function route()
 	{
-		$url = new CUrl;
-
 		if ( $url->getCountUrl() == 0 )  {
 			$controller = 'Index';
 		}

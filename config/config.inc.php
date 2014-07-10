@@ -11,7 +11,7 @@ date_default_timezone_set('Europe/Minsk');
 require( dirname(__FILE__) . '/settings.inc.php' );
 require( dirname(__FILE__) . '/defines.inc.php' );
 
-
+require( _DIR_ROOT_._PATH_CORE_ . 'function/init.php');
 require( _DIR_ROOT_ . '/core/V.php' );
 require( _DIR_ROOT_ . '/core/class/CUrl.php' );
 require( _DIR_ROOT_ . '/core/class/CEntity.php' );
@@ -27,7 +27,6 @@ require( _DIR_ROOT_ . '/core/db/AbstractDbCore.php' );
 require( _DIR_ROOT_ . '/core/db/InterfaceDbCore.php' );
 
 require( _DIR_ROOT_ . '/core/Autoload.php' );
-require( _DIR_ROOT_ . '/core/class/cconfig.php' );
 
 spl_autoload_register(array(Autoload::getInstance(), 'load'));
 

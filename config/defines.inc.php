@@ -7,6 +7,7 @@ define( '_DB_DRIVER_', 'MySQL' );
 
 // Название баз данных
 
+define( '_DB_NAME_ACTION_', 'action' );
 define( '_DB_NAME_CONFIG_', 'config') ;
 define( '_DB_NAME_MENUS_' , 'menus') ;
 define( '_DB_NAME_ENTITIES_' , 'entities' );
